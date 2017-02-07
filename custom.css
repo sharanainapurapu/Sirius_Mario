@@ -1,0 +1,116 @@
+body {
+	/*background:#f1f1f1;*/
+	background: url("images/bg.jpg");
+	background-size: contain;
+}
+.leftWrapper{
+	float: left;
+	height: 100vh;
+	background:#f1f1f1;
+	padding: 40px;
+	width: 180px;
+	position: relative;
+}
+h3.supermariolove {
+	position: absolute;
+	top: 5vh;	
+	margin-left: 15px;
+}
+
+h3.workhardplayharder {
+	position: absolute;
+	top: 15vh;	
+	margin-left: -5px;
+}
+h3.siriusrebranding {
+	position: absolute;
+	top: 28vh;	
+	margin-left: 30px;
+}
+h3.lovetowork {
+	position: absolute;
+	bottom: 40vh;
+	margin-left: 10px;
+}
+h3.freedomofwork {
+	position: absolute;
+	bottom: 50vh;
+	margin-left: 30px;
+}
+.leftWrapper img {
+    width: 220px;
+    height: auto;
+    position: absolute;
+    top: 50vh;
+    margin-top: -73px;
+    left: 50%;
+    margin-left: -110px;
+}
+.leftWrapper img.playbutton {
+	width: 160px;
+	height: auto;
+	position: absolute;
+	bottom: 23vh;
+    top: initial;
+    margin-top: 0;
+    margin-left: -80px;	
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;    
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count: infinite;
+    box-shadow: 2px 4px 8px lightgrey;
+}
+
+.rightWrapper {
+	float: right;
+	height: 100vh;
+}
+.rightWrapper img {
+	height: 250px;
+	display: inline-block;
+	width: auto;
+	margin-top: calc(50vh - 250px);
+    margin-right: 30px;
+}
+.centerWrapper {
+    padding: 20px;
+    float: left;
+    width: calc(100vw - 300px);
+}
+.centerWrapper img.marioLogo {
+	width: 300px;
+	height: auto;
+	margin-left: calc(50% - 150px);
+    margin-top: 30px;
+}
+
+div.centerWrapper p {
+	font-size: 16px;
+	text-align: justify;    
+	padding: 20px 40px;
+	background: rgba(255,255,255,0.8);
+	font-family: sans-serif;
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
