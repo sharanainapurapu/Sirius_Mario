@@ -1,59 +1,119 @@
 body {
-	/*background:#f1f1f1;*/
+/*	background:#f1f1f1;*/
 	background: url("images/bg.jpg");
 	background-size: contain;
+	/*background-color: #222222;
+	background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;	*/
 }
 .leftWrapper{
 	float: left;
 	height: 100vh;
 	background:#f1f1f1;
 	padding: 40px;
-	width: 180px;
+	width: 400px;
 	position: relative;
+	font-family: sans-serif;
+	box-shadow: 2px 2px 2px lightslategrey;
 }
-h3.supermariolove {
-	position: absolute;
-	top: 5vh;	
-	margin-left: 15px;
+.leftWrapper .quote{	
+	font-family: Pacifico;
+	font-size: 1.2rem;
 }
-
-h3.workhardplayharder {
-	position: absolute;
-	top: 15vh;	
-	margin-left: -5px;
-}
-h3.siriusrebranding {
-	position: absolute;
-	top: 28vh;	
-	margin-left: 30px;
-}
-h3.lovetowork {
-	position: absolute;
-	bottom: 40vh;
-	margin-left: 10px;
-}
-h3.freedomofwork {
-	position: absolute;
-	bottom: 50vh;
-	margin-left: 30px;
+.leftWrapper .quoteBy {
+	font-size: 1rem;
 }
 .leftWrapper img {
     width: 220px;
     height: auto;
     position: absolute;
-    top: 50vh;
-    margin-top: -73px;
+    top: 30px;
     left: 50%;
     margin-left: -110px;
 }
-.leftWrapper img.playbutton {
-	width: 160px;
-	height: auto;
-	position: absolute;
-	bottom: 23vh;
+.leftWrapper h1 {
+	margin-top: 113px;
+	text-align: center;
+	font-weight: 500;
+}
+.leftWrapper h2 {
+	text-align: center;
+}
+.leftWrapper p {
+	font-family: sans-serif;
+	font-size: 1rem;
+	text-align: justify;
+}
+.leftWrapper img.logoHistory {
+	position: relative;
+    width: 440px;
     top: initial;
-    margin-top: 0;
-    margin-left: -80px;	
+    left: initial;
+    margin-left: -20px;	
+}
+
+
+.centerWrapper {
+    padding: 20px;
+    float: left;
+    width: calc(100vw - 520px);
+    position: relative;
+    text-align: center;
+}
+.centerWrapper .contentRow {
+	margin-bottom: 20px;
+    background: #ffd424;
+    border-radius: 20px; 
+   position: relative;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
+   box-shadow: 2px 2px 2px black;
+}
+.centerWrapper .contentRow:before {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 65px;
+   width: 0;
+   height: 0;
+   border-top: 13px solid transparent;
+   border-right: 26px solid #ffd424;
+   border-bottom: 13px solid transparent;
+}
+.centerWrapper .contentRow:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	visibility: hidden;
+}
+.centerWrapper .contentRow img{
+	width: 70px;
+    padding: 15px;
+    border-radius: 10px;
+    float: left;
+}
+.centerWrapper .contentRow .rules{	
+	float: right;
+    width: calc(100% - 140px);
+    text-align: left;
+    font-family: Audiowide;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0 0 15px;
+}
+.centerWrapper .contentRow .rules h3{	
+	font-size: 1.1rem;
+}	
+.centerWrapper img.playbutton {
+	width: 260px;
+	height: auto;
+	margin-top: 20px;
+/*	position: absolute;
+    bottom: -20vh;
+    margin-left: -130px;
+    left: 50%;	*/
 	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 	transform: translate3d(0, 0, 0);
 	backface-visibility: hidden;
@@ -62,40 +122,36 @@ h3.freedomofwork {
 	animation-iteration-count: infinite;
 	-webkit-animation-duration: 1s;
 	-webkit-animation-iteration-count: infinite;
-    box-shadow: 2px 4px 8px lightgrey;
+	border: 5px solid white;
+}
+.centerWrapper p.marioLogo {
+	text-align: center;
 }
 
-.rightWrapper {
-	float: right;
-	height: 100vh;
-}
-.rightWrapper img {
-	height: 250px;
-	display: inline-block;
-	width: auto;
-	margin-top: calc(50vh - 250px);
-    margin-right: 30px;
-}
-.centerWrapper {
-    padding: 20px;
-    float: left;
-    width: calc(100vw - 300px);
-}
-.centerWrapper img.marioLogo {
-	width: 300px;
-	height: auto;
-	margin-left: calc(50% - 150px);
-    margin-top: 30px;
+.centerWrapper p.marioLogo a {
+  font-size: 5.5rem;
+  color: rgba(255,255,255,0.7);
+  font-family: Monoton;
+  text-decoration: none;
 }
 
-div.centerWrapper p {
-	font-size: 16px;
-	text-align: justify;    
-	padding: 20px 40px;
-	background: rgba(255,255,255,0.8);
-	font-family: sans-serif;
+.centerWrapper p.marioLogo a:hover {
+  -webkit-animation: neon 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon 1.5s ease-in-out infinite alternate;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+.centerWrapper p a:hover {
+  color: rgba(255,255,255,0.7);
 }
 
+@-webkit-keyframes neon {
+  from {
+    text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.6), 0 0 30px rgba(255,255,255,0.6), 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF;
+  }
+  to {
+    text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.6), 0 0 15px , 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF;
+  }
+}
 
 @keyframes shake {
   10%, 90% {
@@ -113,4 +169,14 @@ div.centerWrapper p {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+.siriusBrandingBG {
+	background: url("images/Background.jpg");
+    background-size: cover;
+}
+.siriusLogo {
+    position: absolute;
+    top: 40px;
+    height: 80px;
+    left: 40px;
 }

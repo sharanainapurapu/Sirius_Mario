@@ -3894,25 +3894,24 @@ function GameOver()
 	document.onkeyup = NodownHandler;
 	
 	//GameOver einblenden:
-	$('#world').append('<div id=\'gameover\'></div>');
+	$('#world').append('<div id=\'gameover\'>Game Over</div>');
 	$('#gameover').css( { 'margin' : '0' ,
 						  'padding' : '20px' ,
-						  'height' : '440px' ,
 						  'width' : '600px' ,
 							
 						  'position' : 'absolute' ,		/* damit man relativ zur #world ausrichten kann */
-						  'top' : '0px' ,
+						  'top' : '220px' ,
 						  'left' : '0px' ,
 						  'z-index' : '1001' ,			/* ist vor Mario und allen anderen Objekten im Spiel */
 							
-						  'background-color' : 'rgba(0,0,0,0.5)' ,	/* ein leicht durchsichtiges Grau */
+						  'background-color' : 'rgba(0,0,0,1)' ,	/* ein leicht durchsichtiges Grau */
 						
 						  'text-align' : 'center' ,
 						  'font-family' : '\'Comic Sans MS\' , \'Georgia\' , \'Arial\'' ,
 						  'font-size' : '44px' ,
 						  'font-weight' : 'bold' ,
 						  'text-decoration' : 'underline' ,
-						  'color' : 'white' } ).html('<img src="images/charecter_homepage.png" style="width:100px;height;auto"/><br>Game Over');
+						  'color' : 'white' } );
 	
 	//Zurück ins Hauptmenü und alle unnötig gewordenen divs löschen:
 	setTimeout( function() 
