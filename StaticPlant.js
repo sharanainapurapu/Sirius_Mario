@@ -1,14 +1,14 @@
-function staticplant(i,j)				//Konstruktor einer statischen Pflanze
+function staticplant(i,j)			
 {
 	this.i = i;							//damit ist die Pflanze eindeutig identifizierbar
 	this.j = j;
-	this.x = 32*i - 1;					//world-Koordinaten -> für Animation in GameLoop()
+	this.x = 32*i - 1;					//world-Koordinaten -> fÃ¼r Animation in GameLoop()
 	this.y = (14-j)*32 - 2;
 	
 	this.dead = false;
 	
-	$('#world').append('<div id=\'staticplant' + i.toString() + '_' + j.toString() + '\'></div>');	//erzeuge div für die Pflanze und setze sie in die Spielwelt ein
-	this.body = $('#staticplant'+i.toString()+'_'+j.toString());									//hiermit lässt sich das Pflanzen-div ansprechen
+	$('#world').append('<div id=\'staticplant' + i.toString() + '_' + j.toString() + '\'></div>');	//erzeuge div fÃ¼r die Pflanze und setze sie in die Spielwelt ein
+	this.body = $('#staticplant'+i.toString()+'_'+j.toString());									//hiermit lÃ¤sst sich das Pflanzen-div ansprechen
 	
 	this.body.css( { 'margin' : '0' ,
 					 'padding' : '0' ,
@@ -16,7 +16,7 @@ function staticplant(i,j)				//Konstruktor einer statischen Pflanze
 		 		 	 'height' : '42px' , 
 		 			 'background-image' : 'url(\'mario-enemies.png\')' , 
 					 'background-position' : '0px -3px' ,	 	//Bild der Pflanze
-					 'position' : 'absolute' ,					//Positionierung der Pflanze erfolgt relativ zum übergeordneten world-Div
+					 'position' : 'absolute' ,					//Positionierung der Pflanze erfolgt relativ zum Ã¼bergeordneten world-Div
 					 'left' : (32*i-1).toString() + 'px' ,
 					 'bottom' : ((14-j)*32-2).toString() + 'px' ,
 					 'z-index' : '99'  } );						//Pflanzen sind hinter Mario
@@ -35,7 +35,7 @@ staticplant.prototype.bite = function()		//die Pflanze beisst zu
 		else
 			mario.hurt();
 	
-	//Falls Mario lebendig und noch nicht fertig ist, kommt der nächste Move:
+	//Falls Mario lebendig und noch nicht fertig ist, kommt der nÃ¤chste Move:
 	if( !mario.dead && !mario.finished )
 	{
 		var This = this;
