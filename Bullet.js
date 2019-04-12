@@ -1,7 +1,7 @@
-function bullet(i)						//Konstruktor eines Feuerballs für Mario als Schützen
+function bullet(i)						
 {
 	this.i = i;							//damit ist die Kugel eindeutig identifizierbar
-	this.x = 0;							//world-Koordinaten -> für Animation in GameLoop()
+	this.x = 0;							//world-Koordinaten -> fÃ¼r Animation in GameLoop()
 	this.y = 0;							//werden beim Abschuss auf mario.x und mario.y gesetzt
 	
 	this.direction = 'right';			//wird beim Abschuss auf mario.direction gesetzt
@@ -9,8 +9,8 @@ function bullet(i)						//Konstruktor eines Feuerballs für Mario als Schützen
 	
 	this.active = false;				//ist der Feuerball gerade in Gebrauch?
 	
-	$('#world').append('<div id=\'bullet' + i.toString() + '\'></div>');//erzeuge div für die Kugel und setze sie in die Spielwelt ein
-	this.body = $('#bullet'+i.toString());								//hiermit lässt sich das div ansprechen
+	$('#world').append('<div id=\'bullet' + i.toString() + '\'></div>');//erzeuge div fÃ¼r die Kugel und setze sie in die Spielwelt ein
+	this.body = $('#bullet'+i.toString());								//hiermit lÃ¤sst sich das div ansprechen
 	
 	this.body.css( { 'margin' : '0' ,
 					 'padding' : '0' ,
@@ -18,8 +18,8 @@ function bullet(i)						//Konstruktor eines Feuerballs für Mario als Schützen
 		 		 	 'height' : '16px' , 
 		 			 'background-image' : 'url(\'mario-sprites.png\')' , 
 					 'background-position' : '-191px -366px' ,	//Bild des Feuerballs
-					 'position' : 'absolute' ,					//Positionierung des Balls erfolgt relativ zum übergeordneten world-Div
-					 'left' : '0px' ,							//zunächst mal irgendwo
+					 'position' : 'absolute' ,					//Positionierung des Balls erfolgt relativ zum Ã¼bergeordneten world-Div
+					 'left' : '0px' ,							//zunÃ¤chst mal irgendwo
 					 'bottom' : '0px' ,
 					 'display' : 'none' ,						//unbenutzte Kugeln sind unsichtbar
 					 'z-index' : '99'  } );						//Kugeln sind hinter Mario
@@ -36,7 +36,7 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 	
 	//Berechnung der neuen Koordinaten mit Kollisionskontrolle: 
 	var Delta_x = 0, Delta_y = 0;		//Translationen
-	var i_alt, j_alt, i_neu, j_neu;		//für die Kollisionsabfrage mit dem levelarray
+	var i_alt, j_alt, i_neu, j_neu;		//fÃ¼r die Kollisionsabfrage mit dem levelarray
 	
 	//Horizontale Translation:
 	if( this.direction==='right' )
@@ -59,7 +59,7 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 	
 	//Undurchdringliche Objekte rechts und links:
 	i_alt = Math.floor( ( this.x + 8 ) / 32 );  //vor move(): Ball war in i-ter Levelspalte im levelarray
-	j_alt = 14 - Math.floor( this.y / 32 );  	//vor move(): Ball auf Höhe des j-ten Elements des levelarrays
+	j_alt = 14 - Math.floor( this.y / 32 );  	//vor move(): Ball auf HÃ¶he des j-ten Elements des levelarrays
 	
 	if( this.direction==='right' && i_alt <  levelwidth / 32 - 1 )
 	{
@@ -86,11 +86,11 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 	
 	//Freier Fall:
 	i_neu = Math.floor( ( this.x + Delta_x + 8 ) / 32 );  //Ziel: Ball will in i-ter Levelspalte im levelarray landen
-	j_neu = 14 - Math.floor( ( this.y + Delta_y ) / 32 ); //Ziel: Ball will auf Höhe des j-ten Elements des levelarrays gelangen
-	if( j_neu > 14 )			//Ball würde den unteren Rand des levelarrays überschreiten, was nicht definiert ist!!!
+	j_neu = 14 - Math.floor( ( this.y + Delta_y ) / 32 ); //Ziel: Ball will auf HÃ¶he des j-ten Elements des levelarrays gelangen
+	if( j_neu > 14 )			//Ball wÃ¼rde den unteren Rand des levelarrays Ã¼berschreiten, was nicht definiert ist!!!
 		j_neu = 14;
 	
-	if( j_neu - j_alt == 1 )	//Ball fällt in die nächste Kachel hinein
+	if( j_neu - j_alt == 1 )	//Ball fÃ¤llt in die nÃ¤chste Kachel hinein
 	{
 		if(levelarray[i_neu][j_neu]==='grass_top'||levelarray[i_neu][j_neu]==='grass_top_right'||levelarray[i_neu][j_neu]==='grass_top_left'||levelarray[i_neu][j_neu]==='grass_top_right_rounded'||levelarray[i_neu][j_neu]==='grass_top_left_rounded'||levelarray[i_neu][j_neu]==='stone'||levelarray[i_neu][j_neu]==='brown_block'||levelarray[i_neu][j_neu]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu]==='coinbox'||levelarray[i_neu][j_neu]==='multiple_coinbox'||levelarray[i_neu][j_neu]==='starbox'||levelarray[i_neu][j_neu]==='pipe_top_right'||levelarray[i_neu][j_neu]==='pipe_top_left'||levelarray[i_neu][j_neu]==='mushroombox')
 		{	
@@ -99,38 +99,38 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
 	}
-	else if( j_neu - j_alt == 2 )	//Ball fällt in die übernächste Kachel hinein -> die nächste muss daher auch überprüft werden!!!
+	else if( j_neu - j_alt == 2 )	//Ball fÃ¤llt in die Ã¼bernÃ¤chste Kachel hinein -> die nÃ¤chste muss daher auch Ã¼berprÃ¼ft werden!!!
 	{
 		if(levelarray[i_neu][j_neu-1]==='grass_top'||levelarray[i_neu][j_neu-1]==='grass_top_right'||levelarray[i_neu][j_neu-1]==='grass_top_left'||levelarray[i_neu][j_neu-1]==='grass_top_right_rounded'||levelarray[i_neu][j_neu-1]==='grass_top_left_rounded'||levelarray[i_neu][j_neu-1]==='stone'||levelarray[i_neu][j_neu-1]==='brown_block'||levelarray[i_neu][j_neu-1]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu-1]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu-1]==='coinbox'||levelarray[i_neu][j_neu-1]==='multiple_coinbox'||levelarray[i_neu][j_neu-1]==='starbox'||levelarray[i_neu][j_neu-1]==='pipe_top_right'||levelarray[i_neu][j_neu-1]==='pipe_top_left'||levelarray[i_neu][j_neu-1]==='mushroombox')
 		{	
-			//Fall endet auf nächster Kachel:
+			//Fall endet auf nÃ¤chster Kachel:
 			Delta_y = (16 - j_neu) * 32 - this.y;		//restliche Fallstrecke bis zum Boden
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
 		else if(levelarray[i_neu][j_neu]==='grass_top'||levelarray[i_neu][j_neu]==='grass_top_right'||levelarray[i_neu][j_neu]==='grass_top_left'||levelarray[i_neu][j_neu]==='grass_top_right_rounded'||levelarray[i_neu][j_neu]==='grass_top_left_rounded'||levelarray[i_neu][j_neu]==='stone'||levelarray[i_neu][j_neu]==='brown_block'||levelarray[i_neu][j_neu]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu]==='coinbox'||levelarray[i_neu][j_neu]==='multiple_coinbox'||levelarray[i_neu][j_neu]==='starbox'||levelarray[i_neu][j_neu]==='pipe_top_right'||levelarray[i_neu][j_neu]==='pipe_top_left'||levelarray[i_neu][j_neu]==='mushroombox')
 		{	
-			//Ball fällt durch nächste Kachel durch und landet auf übernächster:
+			//Ball fÃ¤llt durch nÃ¤chste Kachel durch und landet auf Ã¼bernÃ¤chster:
 			Delta_y = (15 - j_neu) * 32 - this.y;		//restliche Fallstrecke bis zum Boden
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
 	}
-	else if( j_neu - j_alt == 3 )	//Ball fällt in die überübernächste Kachel hinein -> untersuche auch die beiden darüberliegenden Kacheln!!!
+	else if( j_neu - j_alt == 3 )	//Ball fÃ¤llt in die Ã¼berÃ¼bernÃ¤chste Kachel hinein -> untersuche auch die beiden darÃ¼berliegenden Kacheln!!!
 	{
 		if(levelarray[i_neu][j_neu-2]==='grass_top'||levelarray[i_neu][j_neu-2]==='grass_top_right'||levelarray[i_neu][j_neu-2]==='grass_top_left'||levelarray[i_neu][j_neu-2]==='grass_top_right_rounded'||levelarray[i_neu][j_neu-2]==='grass_top_left_rounded'||levelarray[i_neu][j_neu-2]==='stone'||levelarray[i_neu][j_neu-2]==='brown_block'||levelarray[i_neu][j_neu-2]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu-2]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu-2]==='coinbox'||levelarray[i_neu][j_neu-2]==='multiple_coinbox'||levelarray[i_neu][j_neu-2]==='starbox'||levelarray[i_neu][j_neu-2]==='pipe_top_right'||levelarray[i_neu][j_neu-2]==='pipe_top_left'||levelarray[i_neu][j_neu-2]==='mushroombox')
 		{	
-			//Fall endet auf nächster Kachel:
+			//Fall endet auf nÃ¤chster Kachel:
 			Delta_y = (17 - j_neu) * 32 - this.y;		//restliche Fallstrecke bis zum Boden
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
 		else if(levelarray[i_neu][j_neu-1]==='grass_top'||levelarray[i_neu][j_neu-1]==='grass_top_right'||levelarray[i_neu][j_neu-1]==='grass_top_left'||levelarray[i_neu][j_neu-1]==='grass_top_right_rounded'||levelarray[i_neu][j_neu-1]==='grass_top_left_rounded'||levelarray[i_neu][j_neu-1]==='stone'||levelarray[i_neu][j_neu-1]==='brown_block'||levelarray[i_neu][j_neu-1]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu-1]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu-1]==='coinbox'||levelarray[i_neu][j_neu-1]==='multiple_coinbox'||levelarray[i_neu][j_neu-1]==='starbox'||levelarray[i_neu][j_neu-1]==='pipe_top_right'||levelarray[i_neu][j_neu-1]==='pipe_top_left'||levelarray[i_neu][j_neu-1]==='mushroombox')
 		{	
-			//Fall endet auf übernächster Kachel:
+			//Fall endet auf Ã¼bernÃ¤chster Kachel:
 			Delta_y = (16 - j_neu) * 32 - this.y;		//restliche Fallstrecke bis zum Boden
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
 		else if(levelarray[i_neu][j_neu]==='grass_top'||levelarray[i_neu][j_neu]==='grass_top_right'||levelarray[i_neu][j_neu]==='grass_top_left'||levelarray[i_neu][j_neu]==='grass_top_right_rounded'||levelarray[i_neu][j_neu]==='grass_top_left_rounded'||levelarray[i_neu][j_neu]==='stone'||levelarray[i_neu][j_neu]==='brown_block'||levelarray[i_neu][j_neu]==='grass_top_right_rounded_soil'||levelarray[i_neu][j_neu]==='grass_top_left_rounded_soil'||levelarray[i_neu][j_neu]==='coinbox'||levelarray[i_neu][j_neu]==='multiple_coinbox'||levelarray[i_neu][j_neu]==='starbox'||levelarray[i_neu][j_neu]==='pipe_top_right'||levelarray[i_neu][j_neu]==='pipe_top_left'||levelarray[i_neu][j_neu]==='mushroombox')
 		{	
-			//Ball fällt durch die beiden nächsten Kacheln durch und landet auf überübernächster:
+			//Ball fÃ¤llt durch die beiden nÃ¤chsten Kacheln durch und landet auf Ã¼berÃ¼bernÃ¤chster:
 			Delta_y = (15 - j_neu) * 32 - this.y;		//restliche Fallstrecke bis zum Boden
 			this.velocity_y = 13;						//der Ball hoppst sofort weiter
 		}
@@ -154,7 +154,7 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 			
 	//Erwischt der Feuerball irgendwelche Pflanzen?
 	for( var k = plants.length ; k-- ; )
-		if( plants[k].frame )	//Röhrenpflanzen
+		if( plants[k].frame )	//RÃ¶hrenpflanzen
 		{
 			if( this.x + 16 > plants[k].x  && this.x < plants[k].x + 32 && this.y + 16 > plants[k].y + plants[k].Delta_y && this.y < plants[k].y + plants[k].Delta_y + 42 )	//Wechselwirkungsbereich
 				if( !plants[k].dead )
@@ -180,7 +180,7 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 		}
 	
 	
-	//der nächste Move:
+	//der nÃ¤chste Move:
 	if( this.y < -15 || mario.dead || mario.finished )	//falls die Kugel im Boden verschwunden ist
 	{
 		var This = this;			//verstecke Ball und beende move()
@@ -189,7 +189,7 @@ bullet.prototype.move = function()		//der Feuerball fliegt los...
 	}
 	else
 	{
-		var This = this;			//Erstellen eines this-Klons für das folgende setTimeout!!!
+		var This = this;			//Erstellen eines this-Klons fÃ¼r das folgende setTimeout!!!
 		setTimeout( function() { This.move(); } , 20 );
 	}
 };
